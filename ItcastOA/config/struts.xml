@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 中文处理 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	
+	<!-- 由spring代替struts2来创建action对象 。此项可以不配，但最好配置一下-->
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<!-- 浏览器访问路径后缀 -->
+	<constant name="struts.action.extension" value="do,action"></constant>
+	
+	<!--当struts配置文件修改后，系统是否自动重新加载该文件，默认值为false(生产环境下使用)，开 发环境下建议打开  -->
+	<constant name="struts.configuration.xmlreload" value="true"></constant>
+
+	<!-- 开发环境下使用，这样可以打印出更详细的信息 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<!-- 该属性设置struts2是否支持动态方法调用，默认值为true。如果需要关闭动态方法调用，可设置为false -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	<!-- 上传文件大小限制 (不是单个，是总大小)-->
+	<constant name="struts.multipart.maxSize" value="102400"></constant>
+    
+    <!-- 把主题配置为simple -->
+    <constant name="struts.ui.theme" value="simple"></constant>
+
+    <package name="default" namespace="/" extends="struts-default">
+    	<!-- struts2与spring整合后，class属性可以写成spring管理的bean的名称 -->
+    	<action name="test" class="testAction">
+    		<result name="success">/index.jsp</result>
+    	</action>
+    	
+    	<action name="role_*" class="roleAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+    		<result name="toList" type="redirectAction">role_list</result>
+    		<result name="saveUI">/WEB-INF/jsp/roleAction/saveUI.jsp</result>
+    	</action>
+    	
+    	<action name="department_*" class="departmentAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/departmentAction/list.jsp</result>
+    		<result name="toList" type="redirectAction">department_list</result>
+    		<result name="saveUI">/WEB-INF/jsp/departmentAction/saveUI.jsp</result>
+    	</action>
+    	
+    	<action name="struts2" class="testAction" method="execute">
+    		<result name="success">/index.jsp</result>
+    	</action>
+    </package>
+
+</struts>
