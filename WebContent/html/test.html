@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<script>
+	$(function(){
+		//设置表格样式
+		//$("#test_tbl").attr("border", "3");
+		$("#test_tbl").attr("style", "width:60%; border-collapse:collapse;");
+		$("#test_tbl td").attr("style","border:1px solid black; height:30px;");// width:150px;
+		$("#test_tbl td").attr("align","center");
+		
+		//找到表格所有的tr
+		var trs = $("#test_div table").eq(0).find("tr");
+		
+		//第一个tr下的所有td
+		var tr0_tds = $(trs[0]).children();
+		var jeIndex;//第一个tr下的td的内容为"金额"的td的索引
+		
+		//找到td内容为"金额"的td的索引
+		for(var i=0; i<tr0_tds.length; i++){
+			$(tr0_tds[i]).attr("style", "border:1px solid black; height:30px; width:"+$(tr0_tds[i]).width()+"px;");//给第一行的每个单元格设置样式
+			if($(tr0_tds[i]).text()=="金额"){
+				jeIndex = $(tr0_tds[i]).index();
+				//alert(i);
+			}
+		}
+		
+		/* for(var i = 0; i< trs.length; i++){
+			var tds = $(trs[i]).find("td");
+			for(var j=0; j<tds.length; j++){
+				if(j=tds.length-1){
+					alert($(tds[j]).text());
+				}
+			}
+		} */
+		var zje = 0;
+		for(var i = 1; i< trs.length; i++){
+			zje += parseFloat($(trs[i]).find("td").eq(jeIndex).text());
+		}
+		alert(zje.toFixed(2));
+		
+		//给第一行以后的所有td设置单击事件
+		for(var i = 1; i< trs.length; i++){
+			$(trs[i]).find("td").unbind("click");//绑定单击事件前先清除单击事件，避免重复绑定
+		}
+		for(var i = 1; i< trs.length; i++){
+			$(trs[i]).find("td").click(function(){
+				//alert("哎哟，你点击了我！width:"+$(this).width()+" ,height:"+$(this).height());
+				var inputVar = $("<input>", {"style":"margin:0px; padding:0px; border-width:0px; background:#9AFF9A;"});
+				inputVar.width($(this).width());
+				inputVar.height($(this).height());
+				inputVar.click(function(e){
+					e.stopPropagation();
+				});
+				inputVar.bind("blur", function(){
+					$(this).parent().html($(this).val());
+				});
+				var t = $(this).text();
+				$(this).text("");
+				$(this).append(inputVar);
+				inputVar.focus().val(t);
+			});
+		}
+		
+	});
+</script>
+</head>
+<body>
+	<div id="test_div">
+		
+		<table id="test_tbl">
+			<tr>
+				<td>规格型号</td><td>品名</td><td>数量</td><td>单价</td><td>金额</td>
+			</tr>
+			<tr>
+				<td></td><td></td><td></td><td></td><td>6</td>
+			</tr>
+			<tr>
+				<td></td><td></td><td></td><td></td><td>7</td>
+			</tr>
+		</table>
+	
+	</div>
+</body>
+</html>
