@@ -7,6 +7,7 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +55,8 @@ public class MainActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Toast.makeText(MainActivity.this, et.getText()+"-->"+which, Toast.LENGTH_SHORT).show();
+						//Toast.makeText(MainActivity.this, et.getText()+"-->"+which, Toast.LENGTH_SHORT).show();
+						Intent intent = new Intent();
 					}
 				});
 				builder.show();
