@@ -2,6 +2,7 @@ package com.ayo.helloworld;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -32,7 +33,8 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Button btn = (Button)v;
 				Date d = new Date(System.currentTimeMillis());
-				btn.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d));
+				btn.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("cn")).format(d));
+				
 			}
 		});
         
