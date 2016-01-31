@@ -7,14 +7,19 @@
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.76"
+        android:layout_height="0dp"
+        android:layout_weight="0.50"
         android:ems="10"
         android:inputType="textMultiLine" />
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="30dp"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_first_btn_save" />
+
+    <Button
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
         android:text="@string/activity_first_btn_save" />
 
 </LinearLayout>

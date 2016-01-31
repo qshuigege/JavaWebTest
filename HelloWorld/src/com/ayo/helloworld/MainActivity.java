@@ -56,7 +56,14 @@ public class MainActivity extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						//Toast.makeText(MainActivity.this, et.getText()+"-->"+which, Toast.LENGTH_SHORT).show();
-						Intent intent = new Intent();
+						//显示意图启动新activity
+						Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+						startActivity(intent);
+						
+						//隐式意图启动activity
+						//Intent intentt = new Intent();
+						//intentt.setAction("com.ayo.helloworld.FirstActivity");
+						//startActivity(intentt);
 					}
 				});
 				builder.show();
