@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/activity_first_et_myinfo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.50"
@@ -22,12 +22,14 @@
 
 		    <!-- style="?android:attr/borderlessButtonStyle" -->
 		<Button
+		    android:id="@+id/activity_first_btn_save"
 		    android:layout_width="97dp"
 		    android:layout_height="wrap_content"
 		    android:text="@string/activity_first_btn_save" />
 	
 	        <!-- style="?android:attr/borderlessButtonStyle" -->
 	    <Button
+		    android:id="@+id/activity_first_btn_cancel"
 	        android:layout_width="97dp"
 	        android:layout_height="wrap_content"
 	        android:text="@string/activity_first_btn_cancel" />
