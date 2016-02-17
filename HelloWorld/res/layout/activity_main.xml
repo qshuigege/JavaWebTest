@@ -31,4 +31,12 @@
         android:layout_height="30dp"
         android:layout_alignParentBottom="true" />
 
+    <Button
+        android:id="@+id/btn_hidden_pwd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@id/btn_hidden"
+        android:layout_toRightOf="@id/btn_hidden"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

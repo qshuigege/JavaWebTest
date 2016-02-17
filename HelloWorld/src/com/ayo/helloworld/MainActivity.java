@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         Button btn = (Button)findViewById(R.id.button1);
         Button btnHid = (Button)findViewById(R.id.btn_hidden);
+        Button btnHid_pwd = (Button)findViewById(R.id.btn_hidden_pwd);
         
         btn.setOnClickListener(new OnClickListener() {
 			
@@ -36,6 +37,15 @@ public class MainActivity extends Activity {
 				Date d = new Date(System.currentTimeMillis());
 				btn.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("cn")).format(d));
 				
+			}
+		});
+        
+        btnHid_pwd.setOnLongClickListener(new OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				
+				return true;
 			}
 		});
         

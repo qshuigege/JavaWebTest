@@ -31,12 +31,12 @@ public class FirstActivity extends Activity{
 		final SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
 		String sql = "select * from myinfo where name = ?";
-		Cursor cursor = db.rawQuery(sql, new String[]{"myinfo"});
+		Cursor cursor = db.rawQuery(sql, new String[]{"name"});
 //		String name = null;
 		String content = null;
 		while (cursor.moveToNext()) {
 //			name = cursor.getString(0);
-			content = cursor.getString(1);
+			content = cursor.getString(2);
 		}
 		et.setText(content);
 		
@@ -44,9 +44,10 @@ public class FirstActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				String name = "myinfo";
+				String name = "name";
 				String content = et.getText().toString();
-				db.execSQL("insert into myinfo(name, content) values(?,?)", new Object[]{name, content});
+				db.execSQL("update myinfo set mycontent=? where name=?", new Object[]{content, name});
+				
 			}
 		});
 	}

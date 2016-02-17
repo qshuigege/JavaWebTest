@@ -14,7 +14,10 @@ public class HelloDBHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("create table if not exists myinfo(id integer primary key autoincrement, name varchar(20), mycontent varchar(4000))", null);
+		db.execSQL("create table if not exists mypassword(id integer primary key autoincrement, name varchar(20), mycontent varchar(32))");
+		db.execSQL("insert into mypassword(name, mycontent) values('name', '123456')");
+		db.execSQL("create table if not exists myinfo(id integer primary key autoincrement, name varchar(20), mycontent varchar(4000))");
+		db.execSQL("insert into myinfo(name, mycontent) values('name', 'defaultinfo')");
 	}
 
 	@Override
