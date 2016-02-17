@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="旧密码:">
+        
+    </TextView>
+    <EditText
+        android:id="@+id/activity_set_pwd_et_oldpwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text">
+    </EditText>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新密码:">
+        
+    </TextView>
+    <EditText
+        android:id="@+id/activity_set_pwd_et_newpwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text">
+    </EditText>
+    </LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+
+		    <!-- style="?android:attr/borderlessButtonStyle" -->
+		<Button
+		    android:id="@+id/activity_first_btn_save"
+		    android:layout_width="97dp"
+		    android:layout_height="wrap_content"
+		    android:text="@string/activity_first_btn_save" />
+	
+	        <!-- style="?android:attr/borderlessButtonStyle" -->
+	    <Button
+		    android:id="@+id/activity_first_btn_cancel"
+	        android:layout_width="97dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/activity_first_btn_cancel" />
+
+	</LinearLayout>
+</LinearLayout>
