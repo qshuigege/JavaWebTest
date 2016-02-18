@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ActivityFirst extends Activity{
 	@Override
@@ -47,7 +48,7 @@ public class ActivityFirst extends Activity{
 				String name = "name";
 				String content = et.getText().toString();
 				db.execSQL("update myinfo set mycontent=? where name=?", new Object[]{content, name});
-				
+				Toast.makeText(ActivityFirst.this, "已保存", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
