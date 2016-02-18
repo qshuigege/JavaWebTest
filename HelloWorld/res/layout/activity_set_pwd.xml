@@ -17,7 +17,7 @@
         android:id="@+id/activity_set_pwd_et_oldpwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text">
+        android:inputType="textPassword">
     </EditText>
     </LinearLayout>
 
@@ -34,7 +34,7 @@
         android:id="@+id/activity_set_pwd_et_newpwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text">
+        android:inputType="textPassword">
     </EditText>
     </LinearLayout>
 
@@ -51,7 +51,7 @@
         android:id="@+id/activity_set_pwd_et_newpwd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text">
+        android:inputType="textPassword">
     </EditText>
     </LinearLayout>
 
