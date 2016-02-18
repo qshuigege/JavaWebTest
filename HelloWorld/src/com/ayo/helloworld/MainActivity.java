@@ -113,6 +113,13 @@ public class MainActivity extends Activity {
 				Toast.makeText(MainActivity.this, "Hello, World!", Toast.LENGTH_SHORT).show();
 			}
 		});
+        btnHid_pwd.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(MainActivity.this, "Hello, World!", Toast.LENGTH_SHORT).show();
+			}
+		});
     }
 
     @Override
