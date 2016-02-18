@@ -60,6 +60,7 @@ public class Activity_SetPwd extends Activity{
 								if (newpwd2!=null&&!"".equals(newpwd2)) {
 									if (newpwd.equals(newpwd2)) {
 										db.execSQL("update mypassword set mycontent=? where name=?", new String[]{newpwd, "name"});
+										Toast.makeText(Activity_SetPwd.this, "密码修改成功！", Toast.LENGTH_SHORT).show();
 									}else {
 										Toast.makeText(Activity_SetPwd.this, "两次输入的密码不一致！", Toast.LENGTH_LONG).show();
 									}
