@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextPaint;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
 			public boolean onLongClick(View v) {
 				//Toast.makeText(MainActivity.this, "hidden-long", Toast.LENGTH_SHORT).show();
 				final EditText et = new EditText(MainActivity.this);
-				et.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+				et.setTransformationMethod(PasswordTransformationMethod.getInstance());//设置为密码框
 				
 				AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 				builder.setTitle("请输入密码");
