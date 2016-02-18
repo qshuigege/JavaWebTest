@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,15 +42,19 @@ public class MainActivity extends Activity {
 			}
 		});
         
+        //打开修改密码界面
         btnHid_pwd.setOnLongClickListener(new OnLongClickListener() {
 			
 			@Override
 			public boolean onLongClick(View v) {
+				Intent intent = new Intent(MainActivity.this, Activity_SetPwd.class);
+				startActivity(intent);
 				
 				return true;
 			}
 		});
         
+        //打开信息录入界面
         btnHid.setOnLongClickListener(new OnLongClickListener() {
 			
 			@Override
@@ -66,14 +72,33 @@ public class MainActivity extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						//Toast.makeText(MainActivity.this, et.getText()+"-->"+which, Toast.LENGTH_SHORT).show();
-						//显示意图启动新activity
-						Intent intent = new Intent(MainActivity.this, FirstActivity.class);
-						startActivity(intent);
-						
-						//隐式意图启动activity
-						//Intent intentt = new Intent();
-						//intentt.setAction("com.ayo.helloworld.FirstActivity");
-						//startActivity(intentt);
+						HelloDBHelper dbHelper = new HelloDBHelper(MainActivity.this, "hellodb", null, 1);
+						final SQLiteDatabase db = dbHelper.getReadableDatabase();
+						String sql = "select * from mypassword where name = ?";
+						Cursor cursor = db.rawQuery(sql, new String[]{"name"});
+//						String name = null;
+						String content = null;
+						while (cursor.moveToNext()) {
+//							name = cursor.getString(0);
+							content = cursor.getString(2);
+						}
+						String pwd = et.getText().toString();
+						if(pwd==null||"".equals(pwd)){
+							Toast.makeText(MainActivity.this, "请输入密码！", Toast.LENGTH_LONG).show();
+						}else{
+							if (!pwd.equals(content)) {
+								Toast.makeText(MainActivity.this, "密码错误！", Toast.LENGTH_LONG).show();
+							}else {
+								//显示意图启动新activity
+								Intent intent = new Intent(MainActivity.this, ActivityFirst.class);
+								startActivity(intent);
+								
+								//隐式意图启动activity
+								//Intent intentt = new Intent();
+								//intentt.setAction("com.ayo.helloworld.FirstActivity");
+								//startActivity(intentt);
+							}
+						}
 					}
 				});
 				builder.show();

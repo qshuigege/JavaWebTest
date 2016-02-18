@@ -24,9 +24,18 @@
         </activity>
         
         <!-- FirstActivity -->
-        <activity android:name="com.ayo.helloworld.FirstActivity">
+        <activity android:name="com.ayo.helloworld.ActivityFirst">
             <intent-filter>
-                <action android:name="com.ayo.helloworld.FirstActivity"/>
+                <action android:name="com.ayo.helloworld.ActivityFirst"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            
+        </activity>
+        
+        <!-- Activity_SetPwd -->
+        <activity android:name="com.ayo.helloworld.Activity_SetPwd">
+            <intent-filter>
+                <action android:name="com.ayo.helloworld.Activity_SetPwd"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             
