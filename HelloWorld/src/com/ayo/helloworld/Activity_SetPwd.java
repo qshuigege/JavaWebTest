@@ -70,7 +70,11 @@ public class Activity_SetPwd extends Activity{
 								Toast.makeText(Activity_SetPwd.this, "两次输入的密码不一致！", Toast.LENGTH_LONG).show();
 							}
 						}
+					}else{
+						Toast.makeText(Activity_SetPwd.this, "系统错误！", Toast.LENGTH_LONG).show();
 					}
+				}else{
+					Toast.makeText(Activity_SetPwd.this, "请输入旧密码！", Toast.LENGTH_LONG).show();
 				}
 				
 				//String name = "name";
