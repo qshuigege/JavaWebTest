@@ -7,7 +7,7 @@ var doyoulikemi4i160327221800_tr_index = -1;//当前点击后的tr索引
 function doyoulikemi4i160327_tableExtend(trObj, tableId, htmlContent){
     if(doyoulikemi4i160327221800_tr_index==$(trObj).index()){
         var aaadiv = $($($("#"+tableId).find("tr")[doyoulikemi4i160327221800_tr_index+1]).find("div")[0]);
-        aaadiv.animate({height:"0px"},300,function(){
+        aaadiv.animate({height:"0px"},200,function(){
         	aaadiv.html("");
         	aaadiv.parent().parent().remove();
         });
@@ -16,7 +16,7 @@ function doyoulikemi4i160327_tableExtend(trObj, tableId, htmlContent){
     }
     if(doyoulikemi4i160327221800_tr_index!=-1){
         var aaadiv = $($($("#"+tableId).find("tr")[doyoulikemi4i160327221800_tr_index+1]).find("div")[0]);
-        aaadiv.animate({height:"0px"},300,function(){
+        aaadiv.animate({height:"0px"},200,function(){
         	aaadiv.html("");
         	aaadiv.parent().parent().remove();
         });
